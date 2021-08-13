@@ -6,7 +6,9 @@ require('dotenv/config');
 
 app.use(express.json());
 
-app.use('/', express.static(`${__dirname}/public`));
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'ok' });
+});
 
 app.get('/callback', async (req, res) => {
   const { code } = req.query;
