@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const meli = require('mercadolibre-nodejs-sdk');
-const port = 3000;
 require('dotenv/config');
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -32,4 +32,4 @@ app.get('/callback', async (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`CONNECT PORT: 3000`));
+app.listen(PORT, () => console.log(`CONNECT PORT: 3000`));
