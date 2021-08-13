@@ -30,4 +30,4 @@ app.get('/callback', async (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`CONNECT PORT: 3000`));
+app.listen(PORT, () => console.log(`CONNECT PORT: ${PORT}`));
