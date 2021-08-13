@@ -8,8 +8,10 @@ app.use(express.json());
 
 app.use('/', express.static(`${__dirname}/public`));
 
-app.get('/webhook', async (req, res) => {
+app.post('/webhook', async (req, res) => {
   res.status(200).json({ message: 'ok' });
+
+  fetch('');
 });
 
 app.get('/callback', async (req, res) => {
