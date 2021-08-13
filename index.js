@@ -8,9 +8,13 @@ app.use(express.json());
 
 app.use('/', express.static(`${__dirname}/public`));
 
+app.get('/webhook', async (req, res) => {
+  res.status(200).json({ message: 'ok' });
+});
+
 app.get('/callback', async (req, res) => {
   const { code } = req.query;
-  console.log('REQ-QUERYYYYYYY', req.query);
+
   const apiInstance = new meli.OAuth20Api();
   const opts = {
     grantType: 'authorization_code',
