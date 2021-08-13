@@ -9,30 +9,26 @@ app.use(express.json());
 app.use('/', express.static(`${__dirname}/public`));
 
 app.get('/callback', async (req, res) => {
-  const { code } = req.query;
+  res.status(200).send(req);
 
-  const apiInstance = new meli.OAuth20Api();
-  const opts = {
-    grantType: 'authorization_code',
-    clientId: process.env.MELI_CLIENT_ID,
-    clientSecret: process.env.MELI_CLIENT_SECRET,
-    redirectUri: process.env.MELI_CLIENT_URI,
-    code,
-    refreshToken: process.env.MELI_CLIENT_URI,
-  };
+  // const apiInstance = new meli.OAuth20Api();
+  // const opts = {
+  //   grantType: 'authorization_code',
+  //   clientId: process.env.MELI_CLIENT_ID,
+  //   clientSecret: process.env.MELI_CLIENT_SECRET,
+  //   redirectUri: process.env.MELI_CLIENT_URI,
+  //   code,
+  //   refreshToken: process.env.MELI_CLIENT_URI,
+  // };
 
-  console.log('CODE', code)
-  console.log(process.env.MELI_CLIENT_ID)
-  console.log(process.env.MELI_CLIENT_SECRET)
-  console.log(process.env.MELI_CLIENT_URI)
-  apiInstance.getToken(opts, (error, data, response) => {
-    if (error) {
-      return res.status(200).send(error);
-    } else {
-      const [accessToken] = response.text.match(/(APP_USR-)(\w+-){3}\d+/);
-      return res.status(200).send({ token: accessToken, code });
-    }
-  });
+  // apiInstance.getToken(opts, (error, data, response) => {
+  //   if (error) {
+  //     return res.status(200).send(error);
+  //   } else {
+  //     const [accessToken] = response.text.match(/(APP_USR-)(\w+-){3}\d+/);
+  //     return res.status(200).send({ token: accessToken, code });
+  //   }
+  // });
 });
 
 app.listen(PORT, () => console.log(`CONNECT PORT: ${PORT}`));
