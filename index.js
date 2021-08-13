@@ -14,12 +14,17 @@ app.get('/callback', async (req, res) => {
   const apiInstance = new meli.OAuth20Api();
   const opts = {
     grantType: 'authorization_code',
-    clientId: "1059990109617356",
-    clientSecret: "skfUMB58aIeRlKTSkFM234SkK6wXclTc",
-    redirectUri: "https://integracao-mercado-livre.herokuapp.com/callback",
+    clientId: process.env.MELI_CLIENT_ID,
+    clientSecret: process.env.MELI_CLIENT_SECRET,
+    redirectUri: process.env.MELI_CLIENT_URI,
     code,
-    refreshToken: "https://integracao-mercado-livre.herokuapp.com/callback",
+    refreshToken: process.env.MELI_CLIENT_URI,
   };
+
+  console.log('CODE', code)
+  console.log(process.env.MELI_CLIENT_ID)
+  console.log(process.env.MELI_CLIENT_SECRET)
+  console.log(process.env.MELI_CLIENT_URI)
   apiInstance.getToken(opts, (error, data, response) => {
     if (error) {
       return res.status(200).send(error);
