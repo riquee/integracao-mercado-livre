@@ -1,0 +1,25 @@
+//Seller
+{
+  "id": 807115254,
+  "nickname": "TESTMZMJBZYF",
+  "password": "qatest2284",
+  "site_status": "active",
+  "email": "test_user_87442180@testuser.com"
+}
+
+//Buyer
+{
+  "id": 807114760,
+  "nickname": "TETE6727846",
+  "password": "qatest4778",
+  "site_status": "active",
+  "email": "test_user_28213989@testuser.com"
+}
+
+Products [
+
+https://produto.mercadolivre.com.br/MLB-1979343666-item-de-test-no-ofertar-_JM
+https://produto.mercadolivre.com.br/MLB-1979352349-item-de-test-no-ofertar-_JM
+https://produto.mercadolivre.com.br/MLB-1979347814-item-de-test-no-ofertar-_JM
+
+]
